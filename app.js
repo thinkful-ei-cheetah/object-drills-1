@@ -23,4 +23,17 @@ function updateObject(obj = {}) {
   obj.bang = 'bang';
   return obj;
 }
-console.log(updateObject());
+// console.log(updateObject());
+
+function personMaker(firstName, lastName) {
+  var person = {
+    firstName: firstName,
+    lastName: lastName,
+    fullName: function() {
+      return `${this.firstName} ${this.lastName}`;
+    },
+  };
+  return person;
+}
+
+// console.log( personMaker('Mike', 'Jung').fullName() );
