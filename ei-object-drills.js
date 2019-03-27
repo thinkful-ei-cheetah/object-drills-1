@@ -29,3 +29,15 @@ const mealObj = {
 
 // console.log(mealObj.meals[3]);
 
+
+const randomCharacters = [
+  {name: 'Mike', jobTitle: 'Unemployeed'},
+  {name: 'Michael', jobTitle: 'Engineer'},
+  {name: 'John', jobTitle: 'Chief'}
+];
+
+for (let i in randomCharacters) {
+  for (const key in randomCharacters[i]) {
+    console.log(`${randomCharacters[i][key]}`);
+  }
+}
