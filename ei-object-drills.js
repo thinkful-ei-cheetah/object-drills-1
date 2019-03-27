@@ -106,7 +106,7 @@ let secretMessage = 'craft block argon meter bells brown croon droop';
 // console.log(decodeWords(secretMessage));
 
 
-function createCharacter(name, nickname, race, origin, attack, defense) {
+function createCharacter(name, nickname, race, origin, attack, defense, weapon) {
   return {
     name,
     nickname,
@@ -114,8 +114,9 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
     origin,
     attack,
     defense,
+    weapon,
     describe: function() {
-      console.log(`${this.name} is a ${this.race} from ${this.origin}.`);
+      console.log(`${this.name} is a ${this.race} from ${this.origin} who uses a ${this.weapon}.`);
     },
     evaluateFight: function(character) {
       let x = (this.attack - character.defense) > 0 ? (this.attack - character.defense) : 0;
@@ -125,11 +126,25 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
   };
 }
 
-const gandolf = createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6); 
-const bilbo = createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1);
-const frodo = createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2);
-const aragorn = createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8);
-const legolas = createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5);
+const characters = [
+  createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6, 'wizard staff'),
+  createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1, 'dagger'),
+  createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2, 'ring'),
+  createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8, 'sword'),
+  createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5, 'bow and arrow')
+];
 
-gandolf.evaluateFight(bilbo);
+characters.push(createCharacter('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendell', 20, 2, 'battle axe'));
+
+const aragorn = characters.find(character => character.nickname === 'aragorn');
+// aragorn.describe();
+
+const powerfulAttackers = characters.filter(character => character.attack > 5);
+// console.log(powerfulAttackers);
+
+// characters.forEach(character => character.describe());
+
+
+
+
 
