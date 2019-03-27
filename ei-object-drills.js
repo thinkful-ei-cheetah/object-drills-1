@@ -157,10 +157,16 @@ const HEROES = [
 ];
 
 function findOne(arr, query) {
-  
+  let valid = [];
+  return arr.find(hero => {
+    Object.keys(query).forEach(key => {
+      valid.push(query[key] === hero[key]);
+    });
+    let result = valid.filter(Boolean).length === Object.keys(query).length;
+    valid = [];
+    return result;
+  });
 }
-
-
 
 console.log(findOne(HEROES, { id: 1 }));
 // { id: 1, name: 'Captain America', squad: 'Avengers' }
