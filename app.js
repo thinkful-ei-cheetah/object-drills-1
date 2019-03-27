@@ -92,4 +92,9 @@ function enrollInSummerSchool(students) {
 
 // console.log(enrollInSummerSchool(studentData));
 
+const data = [{id: 1, foo: 'bar'}, {id: 2, foo: 'bizz'}];
+function findById(data, id) {
+  return data.filter(entry => entry.id === id);
+}
 
+// console.log(findById(data, 2));
