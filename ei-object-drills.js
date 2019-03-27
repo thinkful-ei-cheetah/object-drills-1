@@ -67,36 +67,40 @@ const randomCharacters = [
 //   }
 // });
 
+function decode(word) {
+  // look for 1st character of word
+  let key = word[0]; // 'c'
 
-function decodeWords(sentance) {
+  // create cipher
   let cipher = {
     a: 1,
     b: 2,
     c: 3,
     d: 4,
   };
+
+  // look up a key in cipher
+  if (cipher[key]) {
+    // if key exists, return it's value
+    let wordIndex = cipher[key];
+    return word[wordIndex].toUpperCase();
+  } else {
+    // if the key doesn't exist return a space character
+    return ' ';
+  }
+}
+
+function decodeWords(message) {
+  let decodedMessage = '';
+  // split message into words
+  const words = message.split(' ');
+  // look up each word in our decode function
+  words.forEach(word => {
+    decodedMessage += decode(word);
+  });
+  // return the decoded message
+  return decodedMessage;
 }
 
 let secretMessage = 'craft block argon meter bells brown croon droop';
-
-function decode(word) {
-  // look for 1st character of word
-  let key = word[0];
-  // look up a key in cipher
-  let cipher = {
-    a: 1,
-    b: 2,
-    c: 3,
-    d: 4,
-  };
-  // if the key is not in cipher place space
-  let space = word.split(' ');
-  // if the key is in cipher
-  let wordIndex = cipher[key];
-
-  // return the letter that matches word index
-  return word[wordIndex].toUpperCase();
-
-
-}
-console.log(decode('craft'));
+console.log(decodeWords(secretMessage));
