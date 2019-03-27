@@ -9,3 +9,17 @@ const loaf = {
 };
 
 // console.log(loaf.hydration());
+
+
+const newObjects = {
+  foo: '1',
+  bar: '2',
+  fum: '3',
+  quux: '4',
+  spam: '5'
+};
+
+// for (let key in newObjects) {
+//   console.log(`${key}: ${newObjects[key]}`);
+// }
+
