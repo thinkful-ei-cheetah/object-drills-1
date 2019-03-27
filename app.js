@@ -38,7 +38,7 @@ function personMaker(firstName, lastName) {
 
 // console.log( personMaker('Mike', 'Jung').fullName() );
 
-const sampleObj = {
+const fooObj = {
   foo: 'foo',
   bar: 'bar',
   bizz: 'bizz',
@@ -50,4 +50,17 @@ function keyDeleter(obj) {
   delete obj.bar;
   return obj;
 }
-console.log(keyDeleter(sampleObj));
+// console.log(keyDeleter(fooObj));
+
+
+function makeStudentReport(data) {
+  return testData.map(student => `${student.name}: ${student.grade}`);
+}
+
+const testData = [
+  { name: 'Jane Doe', grade: 'A' },
+  { name: 'John Dough', grade: 'B' },
+  { name: 'Jill Do', grade: 'A' },
+];
+
+// console.log(makeStudentReport(testData));
