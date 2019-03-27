@@ -103,4 +103,33 @@ function decodeWords(message) {
 }
 
 let secretMessage = 'craft block argon meter bells brown croon droop';
-console.log(decodeWords(secretMessage));
+// console.log(decodeWords(secretMessage));
+
+
+function createCharacter(name, nickname, race, origin, attack, defense) {
+  return {
+    name,
+    nickname,
+    race,
+    origin,
+    attack,
+    defense,
+    describe: function() {
+      console.log(`${this.name} is a ${this.race} from ${this.origin}.`);
+    },
+    evaluateFight: function(character) {
+      let x = (this.attack - character.defense) > 0 ? (this.attack - character.defense) : 0;
+      let y = (character.attack - this.defense) > 0 ? (character.attack - this.defense) : 0;
+      console.log(`Your opponent takes ${x} damage and you receive ${y} damage`);
+    }
+  };
+}
+
+const gandolf = createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6); 
+const bilbo = createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1);
+const frodo = createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2);
+const aragorn = createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8);
+const legolas = createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5);
+
+gandolf.evaluateFight(bilbo);
+
