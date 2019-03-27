@@ -58,10 +58,45 @@ const randomCharacters = [
 //   console.log(temp.trim());
 // }
 
-randomCharacters.forEach(person => {
-  if ('boss' in person) {
-    console.log( `${person.jobTitle} ${person.name} reports to ${person.boss}.` );
-  } else {
-    console.log(`${person.jobTitle} ${person.name} doesn't report to anybody.`);
-  }
-});
+// Exercise to add boss property
+// randomCharacters.forEach(person => {
+//   if ('boss' in person) {
+//     console.log( `${person.jobTitle} ${person.name} reports to ${person.boss}.` );
+//   } else {
+//     console.log(`${person.jobTitle} ${person.name} doesn't report to anybody.`);
+//   }
+// });
+
+
+function decodeWords(sentance) {
+  let cipher = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
+  };
+}
+
+let secretMessage = 'craft block argon meter bells brown croon droop';
+
+function decode(word) {
+  // look for 1st character of word
+  let key = word[0];
+  // look up a key in cipher
+  let cipher = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
+  };
+  // if the key is not in cipher place space
+  let space = word.split(' ');
+  // if the key is in cipher
+  let wordIndex = cipher[key];
+
+  // return the letter that matches word index
+  return word[wordIndex].toUpperCase();
+
+
+}
+console.log(decode('craft'));
