@@ -23,3 +23,9 @@ const newObjects = {
 //   console.log(`${key}: ${newObjects[key]}`);
 // }
 
+const mealObj = {
+  meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
+};
+
+// console.log(mealObj.meals[3]);
+
