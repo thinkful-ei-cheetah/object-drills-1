@@ -31,13 +31,37 @@ const mealObj = {
 
 
 const randomCharacters = [
-  {name: 'Mike', jobTitle: 'Unemployeed'},
-  {name: 'Michael', jobTitle: 'Engineer'},
-  {name: 'John', jobTitle: 'Chief'}
+  {name: 'Mike', jobTitle: 'Unemployeed', boss: 'Doug'},
+  {name: 'Michael', jobTitle: 'Engineer', boss: 'Doug'},
+  {name: 'John', jobTitle: 'Chief', boss: 'Doug'},
+  {name: 'Doug', jobTitle: 'Founder'}
 ];
 
-for (let i in randomCharacters) {
-  for (const key in randomCharacters[i]) {
-    console.log(`${randomCharacters[i][key]}`);
+// randomCharacters.forEach(person => {
+//   console.log(`${person.name} - ${person.jobTitle}`);
+// });
+
+// Looping through an Array
+// for (let i=0; i<arr.length; i++){}
+// array.forEach(){} -- returns the original array
+// array.map(){} -- returns a new array
+
+// Looping through an Object
+// for (let key in obj) {}
+// Object.keys.forEach(key => obj[key])
+
+// for (let i in randomCharacters) {
+//   let temp = '';
+//   for (const key in randomCharacters[i]) {
+//     temp += `${randomCharacters[i][key]} `;
+//   }
+//   console.log(temp.trim());
+// }
+
+randomCharacters.forEach(person => {
+  if ('boss' in person) {
+    console.log( `${person.jobTitle} ${person.name} reports to ${person.boss}.` );
+  } else {
+    console.log(`${person.jobTitle} ${person.name} doesn't report to anybody.`);
   }
-}
+});
