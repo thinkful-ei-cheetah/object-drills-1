@@ -157,24 +157,19 @@ const HEROES = [
 ];
 
 function findOne(arr, query) {
-  let valid = [];
-  return arr.find(hero => {
-    Object.keys(query).forEach(key => {
-      valid.push(query[key] === hero[key]);
-    });
-    let result = valid.filter(Boolean).length === Object.keys(query).length;
-    valid = [];
-    return result;
-  });
+  return arr.find(hero => isSubset(hero, query));
 }
 
-// function findOne(arr, query) {
-//   return arr.find(hero => isSubset(hero, query));
-// }
-
-// function isSubset(obj1, obj2) {
-
-// }
+function isSubset(obj1, obj2) {
+  let matchCounter = 0;
+  let expectedKeys = Object.keys(obj2);
+  expectedKeys.forEach(key => {
+    if (obj1[key] === obj2[key]) {
+      matchCounter++;
+    }
+  });
+  return matchCounter === expectedKeys.length;
+}
 
 // console.log(findOne(HEROES, { id: 1 }));
 // // { id: 1, name: 'Captain America', squad: 'Avengers' }
@@ -212,5 +207,5 @@ const Database = {
   }
 };
 
-console.log(Database.findOne({ id: 2 }));
+// console.log(Database.findOne({ id: 2 }));
 // { id: 2, name: 'Iron Man', squad: 'Avengers' }
